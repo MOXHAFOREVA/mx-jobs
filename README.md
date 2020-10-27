@@ -17,3 +17,5 @@ Satarken NPCLERE satarsınız.
 Normalde olduğu gibi gidip e basmak yerine hem az'da olsa bir efor sarfediceksiniz ve animasyonu olucak. Devliğini yaptığım X-RolePlay'de oyuncular böyle küçük şeyleri seviyorlardı büyük ihtimalle sizdede aynısı olacaktır.
 
 VIDEO : https://streamable.com/15rfio
+
+Yardımları İçin ak4y'a teşekkürler...
