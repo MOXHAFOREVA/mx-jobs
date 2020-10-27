@@ -18,4 +18,10 @@ Normalde olduğu gibi gidip e basmak yerine hem az'da olsa bir efor sarfediceksi
 
 VIDEO : https://streamable.com/15rfio
 
+KURULUM:
+
+Resources'a atıp startını verebilirsiniz.
+
+Scripti starlamadan önce datasını okutmayı unutmayın.
+
 Yardımları İçin ak4y'a teşekkürler...
