@@ -2,7 +2,7 @@
 
 Merhabalar, kendi discord sunucumda kısa bir süre önce sormuştum jobs sistemi paylaşayım mı diye evet dediniz ve sizlerle...
 
-#Özellikler
+Özellikler
 İçinde yanmeslekler dahil 5 meslek vardır. Bunlar;
 Portakal Suyu Yapma,
 Terzi,
@@ -27,5 +27,6 @@ Scripti starlamadan önce datasını okutmayı unutmayın.
 Yardımları İçin ak4y'a teşekkürler...
 
 Gereksinimleri:
-https://github.com/HalCroves/mythic_progbar
-https://github.com/Nowimps8/nw_mine
+- https://github.com/HalCroves/mythic_progbar
+
+- https://github.com/Nowimps8/nw_mine
