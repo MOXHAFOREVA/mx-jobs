@@ -25,3 +25,7 @@ Resources'a atıp startını verebilirsiniz.
 Scripti starlamadan önce datasını okutmayı unutmayın.
 
 Yardımları İçin ak4y'a teşekkürler...
+
+Gereksinimleri:
+https://github.com/HalCroves/mythic_progbar
+https://github.com/Nowimps8/nw_mine
