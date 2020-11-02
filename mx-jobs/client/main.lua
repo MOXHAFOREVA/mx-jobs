@@ -684,8 +684,9 @@ local uzumyeris = {
 -- Yan Meslekler Tekrar yazılıcak...
 
 Citizen.CreateThread(function()
-    local ped = PlayerPedId()
+  
     while true do
+	local ped = PlayerPedId()
         for i = 1, #portakal, 1 do
         for j = 1, #poragaclar, 1 do
         sleep = 0
@@ -731,8 +732,8 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-    local ped = PlayerPedId()
 while true do
+local ped = PlayerPedId()
     sleep = 0
     for i = 1, #uzum, 1 do
         for j = 1, #uzumyeris, 1 do
@@ -780,8 +781,8 @@ end)
 
 
 Citizen.CreateThread(function()
-    local ped = PlayerPedId()
     while true do
+ local ped = PlayerPedId()
         for i = 1, #portakal, 1 do
         sleep = 0
         local pedcoords = GetEntityCoords(ped)
@@ -825,8 +826,8 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-local ped = PlayerPedId()
     while true do
+	local ped = PlayerPedId()
         sleep = 0
         for i = 1, #uzum, 1 do
             local pedcoords = GetEntityCoords(ped)
@@ -871,8 +872,8 @@ end)
 
 
 Citizen.CreateThread(function()
-    local ped = PlayerPedId()
     while true do
+	local ped = PlayerPedId()
         for i = 1, #portakal, 1 do
         sleep = 0
         local pedcoords = GetEntityCoords(ped)
@@ -898,8 +899,8 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-    local ped = PlayerPedId()
     while true do
+local ped = PlayerPedId()
     sleep = 0
     for i = 1, #uzum, 1 do
         sleep = 0
