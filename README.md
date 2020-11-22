@@ -4,7 +4,7 @@ Merhabalar, kendi discord sunucumda kısa bir süre önce sormuştum jobs sistem
 
 UPDATE 2.0
 
-Büyük ihtimalle getireceğim son update bu update ile gelen şeyler:
+Büyük ihtimalle getireceğim son update. Bu update ile gelen şeyler:
 - Artık istediğiniz mesleği direk config'den kendiniz ekleyebilirsiniz.
 - Kolay bir şekilde whitelist yada yanmeslek olarak ayarlayabilirsiniz.
 - Herşeyi config üzerinden editleyebilirsiniz.
