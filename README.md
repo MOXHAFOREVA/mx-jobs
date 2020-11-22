@@ -15,7 +15,9 @@ Büyük ihtimalle getireceğim son update. Bu update ile gelen şeyler:
 
 ![alt text](https://cdn.discordapp.com/attachments/769881228030771201/780146049914372096/unknown.png)
 
+
 [ESKİ]
+
 Özellikler
 İçinde yanmeslekler dahil 5 meslek vardır. Bunlar;
 Portakal Suyu Yapma,
