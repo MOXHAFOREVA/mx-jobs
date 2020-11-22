@@ -2,6 +2,18 @@
 
 Merhabalar, kendi discord sunucumda kısa bir süre önce sormuştum jobs sistemi paylaşayım mı diye evet dediniz ve sizlerle...
 
+UPDATE 2.0
+
+Büyük ihtimalle getireceğim son update bu update ile gelen şeyler:
+- Artık istediğiniz mesleği direk config'den kendiniz ekleyebilirsiniz.
+- Kolay bir şekilde whitelist yada yanmeslek olarak ayarlayabilirsiniz.
+- Herşeyi config üzerinden editleyebilirsiniz.
+- Dev bir optimizasyon yapıldı önceden 0.40lara falan fırlarken şuan sadece maks 0.16 görüldü. 
+- Tüm meslekler açıkken eğer drawtext'e yakın değilseniz 0.1 [sabit]
+- Ağırlık sistemi uyumlu.
+
+
+[ESKİ]
 Özellikler
 İçinde yanmeslekler dahil 5 meslek vardır. Bunlar;
 Portakal Suyu Yapma,
@@ -15,6 +27,7 @@ Tektek satmak yerine hepsini aynı anda satabilirsiniz,
 Satarken NPCLERE satarsınız.
 
 Normalde olduğu gibi gidip e basmak yerine hem az'da olsa bir efor sarfediceksiniz ve animasyonu olucak. Devliğini yaptığım X-RolePlay'de oyuncular böyle küçük şeyleri seviyorlardı büyük ihtimalle sizdede aynısı olacaktır.
+
 
 VIDEO : https://streamable.com/15rfio
 
