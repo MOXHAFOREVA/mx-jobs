@@ -14,12 +14,15 @@ Cfg.peds = { -- Pedlerin olduğu yerler ve pedin skini pedin skinini değiştirm
     sarap = {ped = 0x8CCE790F, x = 53.41, y = -1478.74, z = 29.29, h = 190.89}
 }
 
+Cfg.mainjoblimit = 400000             -- Ana mesleğin limiti
+Cfg.sidejoblimit = 400000             -- Yan mesleğin limiti
+
 MX = { -- [True olumlu False olumsuz demek.]
     ['Terzi'] = {
         inform = {
             jobRequired = false,            -- Mesleklimi olsun yoksa herkes yapabilsin mi ? 
             job = "terzi",                 -- Mesleğin ismi   
-            jobType = "mainjob",           -- Önemsiz.
+            jobType = "mainjob",           -- Limit sistemi bununla çalışıyor 2 tipi var mainjob sidejob ona göre çoğaltın
             limit = 5,                     -- Kaldırıldı
             vehspawnprice = 1000,          -- Kaldırıldı
             price = 1000,                  -- Eşyayı satınca tane başı fiyatı
