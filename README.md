@@ -2,6 +2,9 @@
 
 Merhabalar, kendi discord sunucumda kısa bir süre önce sormuştum jobs sistemi paylaşayım mı diye evet dediniz ve sizlerle...
 
+# Update 2.0.1 
+- Günlük limit eklendi
+
 # UPDATE 2.0
 
 Büyük ihtimalle getireceğim son update. Bu update ile gelen şeyler:
