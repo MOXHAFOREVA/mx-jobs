@@ -23,3 +23,6 @@ INSERT INTO `job_grades` (`job_name`, `grade`, `name`, `label`, `salary`, `skin_
 	('kasap', 0, 'isci', 'İşci', 0, '{}', '{}'),
 	('maden', 0, 'isci', 'İşci', 0, '{}', '{}')
 ;
+
+ALTER TABLE `users` ADD COLUMN `mainjoblimit` INT(11) NOT NULL DEFAULT '0';
+ALTER TABLE `users` ADD COLUMN `sidejoblimit` INT(11) NOT NULL DEFAULT '0';
