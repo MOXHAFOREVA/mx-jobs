@@ -26,3 +26,4 @@ INSERT INTO `job_grades` (`job_name`, `grade`, `name`, `label`, `salary`, `skin_
 
 ALTER TABLE `users` ADD COLUMN `mainjoblimit` INT(11) NOT NULL DEFAULT '0';
 ALTER TABLE `users` ADD COLUMN `sidejoblimit` INT(11) NOT NULL DEFAULT '0';
+ 
