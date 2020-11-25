@@ -5,17 +5,11 @@ game "gta5"
 client_scripts {
     "config.lua",
     "client/main.lua",
-    "meslekler/kasap.lua",
-    "meslekler/maden.lua",
-    "meslekler/terzi.lua",
-    "meslekler/uzum.lua",
-    "meslekler/portakal.lua",
 }
 
 server_scripts {
+    "@async/async.lua",
+    "@mysql-async/lib/MySQL.lua",
     "config.lua",
     "server/main.lua",
-    "meslekler/kasap.lua",
-    "meslekler/maden.lua",
-    "meslekler/terzi.lua",
 }
