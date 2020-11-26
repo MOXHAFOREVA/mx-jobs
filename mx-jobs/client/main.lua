@@ -224,15 +224,14 @@ Citizen.CreateThread(function()
         if perform then
             sleep = 1000
         end
-        
         if not perform then
             sleep = 7
         end
     end
 end)
 
-function madenselling(labels, values)
-        ESX.UI.Menu.CloseAll()
+madenselling = function ()
+    ESX.UI.Menu.CloseAll()
         ESX.UI.Menu.Open(
             'default', GetCurrentResourceName(), 'selling',
             {
@@ -245,11 +244,11 @@ function madenselling(labels, values)
             },
             function(data, menu)
                 if data.current.value == "elmas" then
-                    TriggerServerEvent('mx-jobs:selling', "elmas", 5000)
+                    TriggerServerEvent('mx-jobs:selling', "elmas", 5000, "mainjob")
                 elseif data.current.value == 'demir' then
-                    TriggerServerEvent('mx-jobs:selling', "demir", 1000)
+                    TriggerServerEvent('mx-jobs:selling', "demir", 1000, "mainjob")
                 elseif data.current.value == 'altin' then
-                    TriggerServerEvent('mx-jobs:selling', "altin", 4000)
+                    TriggerServerEvent('mx-jobs:selling', "altin", 4000, "mainjob")
                 end
             end,
             function(data, menu)
