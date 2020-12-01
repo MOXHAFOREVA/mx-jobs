@@ -189,7 +189,7 @@ MX = { -- [True olumlu False olumsuz demek.]
             },
             [3] = {
                 Type = "selling",
-                pos = { x = 2553.5, y = 4668.1, z = 34.01 }, -- Satma
+                pos = { x = 53.41, y = -1478.74, z = 29.29 }, -- Satma
                 DrawText = "Şaraplari Satmak Icin ~y~E~s~ Bas",
                 Progressbar = {duration = 500, text = "Şaraplar Satılıyor", animDict = "missheistdockssetup1clipboard@idle_a", anim = "idle_a"},
                 addItemCount = 1,
