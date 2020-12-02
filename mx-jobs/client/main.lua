@@ -41,8 +41,6 @@ end)
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
     ESX.PlayerData = xPlayer
-    Citizen.Wait(4000)
-    CreateBlip()
 end)
 
 
