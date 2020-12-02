@@ -314,5 +314,5 @@ function LoadDict(dict)
 	while not HasAnimDictLoaded(dict) do
 	  	Citizen.Wait(10)
     end
-end
+end 
 
