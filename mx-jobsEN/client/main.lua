@@ -49,7 +49,7 @@ Citizen.CreateThread(function()
         local ped = PlayerPedId()
         local pedcoords = GetEntityCoords(ped)
         for _,v in pairs(MX) do
-            for i = 1, #v.inform, 1 do
+            for i = 1, #mm, 1 do
                local dst = GetDistanceBetweenCoords(pedcoords, v.inform[i].pos.x, v.inform[i].pos.y, v.inform[i].pos.z, true)
                if textstatus == true then
                if dst <= 8 then
@@ -210,7 +210,7 @@ Citizen.CreateThread(function()
                         if v.inform.job == "maden" then
                             madenselling()
                         else
-                        TriggerServerEvent('mx-jobs:selling', v.inform.item, v.inform.price)
+                        TriggerServerEvent('mx-jobs:selling', v.inform.item, v.inform.price, v.inform.jobType)
                     end
                     end
                end
