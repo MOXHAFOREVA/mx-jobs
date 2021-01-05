@@ -212,7 +212,7 @@ Citizen.CreateThread(function()
                         if v.inform.job == "maden" then
                             madenselling()
                         else
-                        TriggerServerEvent('mx-jobs:selling', v.inform.item, v.inform.price)
+                        TriggerServerEvent('mx-jobs:selling', v.inform.item, v.inform.price, v.inform.jobType)
                     end
                     end
                end
