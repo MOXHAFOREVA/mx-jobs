@@ -16,17 +16,18 @@ local sleep = 1000
 local blipstatus = false
 
 local textstatus = true
+local blips = {}
 
-TriggerEvent("esx:getSharedObject", function(library) 
-    ESX = library 
-end)
+ESX = nil
 
 Citizen.CreateThread(function()
+    while ESX == nil do
+        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+        Citizen.Wait(0)
+    end
     while ESX.PlayerData == nil do
         Citizen.Wait(100)
     end
-    ESX.PlayerData = ESX.GetPlayerData()
-
     if blipstatus == false then
         CreateBlip()
     end
@@ -35,6 +36,8 @@ end)
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
     ESX.PlayerData.job = job
+    RefreshBlip()
+    CreateBlip()
 end)
 
 RegisterNetEvent('esx:playerLoaded')
@@ -139,15 +142,15 @@ Citizen.CreateThread(function()
                                     DeleteObject(pickaxe)
                                     textstatus = true
                                          local luck = math.random(1, 250)
-                                    if luck < 40 then
-                                        TriggerServerEvent("mx-jobs:takeitem", v.inform.item[1], v.inform[i].addItemCount, false) 
-                                    elseif luck > 50 and luck < 100 then
-                                        TriggerServerEvent("mx-jobs:takeitem", v.inform.item[2], v.inform[i].addItemCount, false) 
-                                    elseif luck > 150 and luck < 220 then
-                                        TriggerServerEvent("mx-jobs:takeitem", v.inform.item[3], v.inform[i].addItemCount, false) 
-                                    else
-                                        ESX.ShowNotification("You couldn't get anything out !")
-                                    end
+                                if luck < 40 then
+                                    TriggerServerEvent("mx-jobs:takeitem", v.inform.item[1], v.inform[i].addItemCount, false) 
+                                elseif luck > 50 and luck < 100 then
+                                    TriggerServerEvent("mx-jobs:takeitem", v.inform.item[2], v.inform[i].addItemCount, false) 
+                                elseif luck > 150 and luck < 220 then
+                                    TriggerServerEvent("mx-jobs:takeitem", v.inform.item[3], v.inform[i].addItemCount, false) 
+                                else
+                                    ESX.ShowNotification("Herhangi birşey çıkaramadın !")
+                                end
                                 end
                             end)
                         else
@@ -231,11 +234,11 @@ madenselling = function ()
         ESX.UI.Menu.Open(
             'default', GetCurrentResourceName(), 'selling',
             {
-                title    = 'Sales Menu',
+                title    = 'Satış Menüsü',
                 elements = {
-                    {label = "Diamond", value = "elmas"},
-                    {label = "Gold", value = "altin"},
-                    {label = "Iron", value = "demir"} 
+                    {label = "Elmas", value = "elmas"},
+                    {label = "Altın", value = "altin"},
+                    {label = "Demir", value = "demir"} 
                 }
             },
             function(data, menu)
@@ -253,17 +256,47 @@ madenselling = function ()
         )
 end
 
+RefreshBlip = function()
+    for k,v in ipairs(blips) do
+        RemoveBlip(k)
+        RemoveBlip(v)
+        blips = {}
+    end
+end
+
 CreateBlip = function()
     for _,v in pairs(MX) do
-        for i = 1, #v.inform, 1 do
-            v.inform.bb = AddBlipForCoord(v.inform[i].blip.coords)
-            SetBlipSprite(v.inform.bb, v.inform[i].blip.sprite)
-            SetBlipColour(v.inform.bb, v.inform[i].blip.color)
-            BeginTextCommandSetBlipName("STRING")
-            AddTextComponentString(v.inform[i].blip.name)
-            EndTextCommandSetBlipName(v.inform.bb)
-            SetBlipAsShortRange(v.inform.bb, true)
-            blipstatus = true
+      
+        if v.inform.jobRequired == true then
+            if ESX.PlayerData.job and v.inform.job == ESX.PlayerData.job.name then
+                for i = 1, #v.inform do
+                    if v.inform[i].blip ~= nil then 
+                        v.inform.bb = AddBlipForCoord(v.inform[i].blip.coords)
+                        SetBlipSprite(v.inform.bb, v.inform[i].blip.sprite)
+                        SetBlipColour(v.inform.bb, v.inform[i].blip.color)
+                        BeginTextCommandSetBlipName("STRING")
+                        AddTextComponentString(v.inform[i].blip.name)
+                        EndTextCommandSetBlipName(v.inform.bb)
+                        SetBlipAsShortRange(v.inform.bb, true)
+                        blipstatus = true
+                        table.insert(blips, v.inform.bb)
+                    end
+                end
+            end
+        else
+            for i = 1, #v.inform do
+                if v.inform[i].blip ~= nil then 
+                    v.inform.bb = AddBlipForCoord(v.inform[i].blip.coords)
+                    SetBlipSprite(v.inform.bb, v.inform[i].blip.sprite)
+                    SetBlipColour(v.inform.bb, v.inform[i].blip.color)
+                    BeginTextCommandSetBlipName("STRING")
+                    AddTextComponentString(v.inform[i].blip.name)
+                    EndTextCommandSetBlipName(v.inform.bb)
+                    SetBlipAsShortRange(v.inform.bb, true)
+                    blipstatus = true
+                    table.insert(blips, v.inform.bb)
+                end
+            end
         end
     end
 end
