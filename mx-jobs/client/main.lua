@@ -1,4 +1,4 @@
-local Keys = {  
+local Keys = {
     ["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57,
     ["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177,
     ["TAB"] = 37, ["Q"] = 44, ["W"] = 32, ["E"] = 38, ["R"] = 45, ["T"] = 245, ["Y"] = 246, ["U"] = 303, ["P"] = 199, ["["] = 39, ["]"] = 40, ["ENTER"] = 18,
@@ -16,33 +16,34 @@ local sleep = 1000
 local blipstatus = false
 
 local textstatus = true
+local blips = {}
 
-TriggerEvent("esx:getSharedObject", function(library) 
-    ESX = library 
-end)
+ESX = nil
 
 Citizen.CreateThread(function()
+    while ESX == nil do
+        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+        Citizen.Wait(0)
+    end
     while ESX.PlayerData == nil do
         Citizen.Wait(100)
     end
-    ESX.PlayerData = ESX.GetPlayerData()
-
     if blipstatus == false then
         CreateBlip()
     end
 end)
 
-
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
     ESX.PlayerData.job = job
+    RefreshBlip()
+    CreateBlip()
 end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
     ESX.PlayerData = xPlayer
 end)
-
 
 Citizen.CreateThread(function()
     while true do
@@ -255,17 +256,47 @@ madenselling = function ()
         )
 end
 
+RefreshBlip = function()
+    for k,v in ipairs(blips) do
+        RemoveBlip(k)
+        RemoveBlip(v)
+        blips = {}
+    end
+end
+
 CreateBlip = function()
     for _,v in pairs(MX) do
-        for i = 1, #v.inform, 1 do
-            v.inform.bb = AddBlipForCoord(v.inform[i].blip.coords)
-            SetBlipSprite(v.inform.bb, v.inform[i].blip.sprite)
-            SetBlipColour(v.inform.bb, v.inform[i].blip.color)
-            BeginTextCommandSetBlipName("STRING")
-            AddTextComponentString(v.inform[i].blip.name)
-            EndTextCommandSetBlipName(v.inform.bb)
-            SetBlipAsShortRange(v.inform.bb, true)
-            blipstatus = true
+      
+        if v.inform.jobRequired == true then
+            if ESX.PlayerData.job and v.inform.job == ESX.PlayerData.job.name then
+                for i = 1, #v.inform do
+                    if v.inform[i].blip ~= nil then 
+                        v.inform.bb = AddBlipForCoord(v.inform[i].blip.coords)
+                        SetBlipSprite(v.inform.bb, v.inform[i].blip.sprite)
+                        SetBlipColour(v.inform.bb, v.inform[i].blip.color)
+                        BeginTextCommandSetBlipName("STRING")
+                        AddTextComponentString(v.inform[i].blip.name)
+                        EndTextCommandSetBlipName(v.inform.bb)
+                        SetBlipAsShortRange(v.inform.bb, true)
+                        blipstatus = true
+                        table.insert(blips, v.inform.bb)
+                    end
+                end
+            end
+        else
+            for i = 1, #v.inform do
+                if v.inform[i].blip ~= nil then 
+                    v.inform.bb = AddBlipForCoord(v.inform[i].blip.coords)
+                    SetBlipSprite(v.inform.bb, v.inform[i].blip.sprite)
+                    SetBlipColour(v.inform.bb, v.inform[i].blip.color)
+                    BeginTextCommandSetBlipName("STRING")
+                    AddTextComponentString(v.inform[i].blip.name)
+                    EndTextCommandSetBlipName(v.inform.bb)
+                    SetBlipAsShortRange(v.inform.bb, true)
+                    blipstatus = true
+                    table.insert(blips, v.inform.bb)
+                end
+            end
         end
     end
 end
