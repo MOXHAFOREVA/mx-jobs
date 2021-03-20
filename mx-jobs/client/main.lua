@@ -252,6 +252,7 @@ madenselling = function ()
             end,
             function(data, menu)
                 menu.close()
+		textstatus = true
             end
         )
 end
