@@ -10,7 +10,6 @@
 VIDEO : https://streamable.com/fvqdb6
 
 Requirements:
-- https://github.com/HalCroves/mythic_progbar
 - https://github.com/Nowimps8/nw_mine
 
 For your problems: https://discord.gg/davU2SY
