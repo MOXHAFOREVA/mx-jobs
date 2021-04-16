@@ -224,7 +224,7 @@ Citizen.CreateThread(function()
             sleep = 1000
         end
         if not perform then
-            sleep = 7
+            sleep = 3
         end
     end
 end)
